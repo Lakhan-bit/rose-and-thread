@@ -1,0 +1,2 @@
+export const site={name:'Rose & Thread',city:'Gondia',maker:'the maker',whatsappNumber:'7796203702',instagramUrl:'https://www.instagram.com/',email:'',domain:'https://rose-and-thread-vedansh.vedanshsaini786.chatgpt.site',freeShippingThreshold:499,returnWindowDays:7};
+export const chatLink=()=>site.whatsappNumber?`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(`Hi ${site.name}! Can you help me choose a scrunchie?`)}`:'/contact/#setup';

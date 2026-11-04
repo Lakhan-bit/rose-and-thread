@@ -1,0 +1,1 @@
+import Link from 'next/link';export default function NotFound(){return <main className="empty section wrap"><span className="eyebrow">OH, LOOSE THREAD.</span><h1>This page slipped<br/>out of its scrunchie.</h1><p>Let’s find you something lovely instead.</p><Link className="button" href="/products/">Shop the collection</Link><p><Link href="/">Back home →</Link></p></main>}

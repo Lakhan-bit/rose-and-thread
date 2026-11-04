@@ -1,0 +1,1 @@
+import {Header,Footer,FloatingChat} from '@/components/ui';export default function Layout({children}:{children:React.ReactNode}){return <><Header/><main id="main">{children}</main><Footer/><FloatingChat/></>}

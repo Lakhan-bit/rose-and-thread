@@ -1,0 +1,1 @@
+import type {Config} from 'tailwindcss'; export default {content:['./app/**/*.{ts,tsx}','./components/**/*.{ts,tsx}'],theme:{extend:{colors:Object.fromEntries(['bg','surface','text','muted','border','accent','accent-hover','accent-soft','success'].map(k=>[k,`var(--${k})`]))}},plugins:[]} satisfies Config;
