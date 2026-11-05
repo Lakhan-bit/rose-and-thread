@@ -1,3 +1,106 @@
 'use client';
-import {useSearchParams,useRouter} from 'next/navigation';import {products} from '@/lib/products';import {Card} from './ui';
-export default function Shop(){const params=useSearchParams(),router=useRouter();const set=(key:string,value:string)=>{const q=new URLSearchParams(params.toString());value==='All'?q.delete(key):q.set(key,value);router.push(`/products/?${q.toString()}`,{scroll:false})};const filtered=products.filter(p=>(!params.get('fabric')||p.fabric===params.get('fabric'))&&(!params.get('pack')||p.packSize===params.get('pack'))&&(!params.get('colour')||p.colours.some(c=>c.name===params.get('colour'))));return <><div className="filters">{[['fabric','Fabric',['All','Satin','Cotton','Velvet']],['pack','Pack size',['All','Single','Set of 3','Set of 5']],['colour','Colour',['All',...Array.from(new Set(products.flatMap(p=>p.colours.map(c=>c.name))))]]].map(([key,label,options])=><fieldset key={key as string}><legend>{label}</legend><div className="filter-options">{(options as string[]).map(o=><button aria-pressed={(params.get(key as string)||'All')===o} className={(params.get(key as string)||'All')===o?'selected':''} onClick={()=>set(key as string,o)} key={o}>{key==='colour'&&o!=='All'&&<span className="filter-swatch" style={{background:products.flatMap(p=>p.colours).find(c=>c.name===o)?.hex}}/>}{o}</button>)}</div></fieldset>)}</div><div className="results"><span aria-live="polite">{filtered.length} {filtered.length===1?'product':'products'}</span>{params.size>0&&<button className="text-link" onClick={()=>router.push('/products/',{scroll:false})}>Clear filters</button>}<span>Handmade. Always.</span></div>{filtered.length?<div className="product-grid shop-grid">{filtered.map(p=><Card product={p} key={p.slug}/>)}</div>:<div className="empty"><h2>No scrunchies match just yet.</h2><p>Try another colour or fabric — your favourite is waiting.</p><button className="button" onClick={()=>router.push('/products/',{scroll:false})}>Clear filters</button></div>}</>}
+
+import { useSearchParams, useRouter } from 'next/navigation';
+import { demoProducts } from '@/lib/demoProducts';
+import { Card } from './ui';
+
+const FABRIC_OPTIONS = [
+  'All',
+  ...Array.from(new Set(demoProducts.map((p) => p.fabric))),
+];
+
+const PACK_OPTIONS = [
+  'All',
+  ...Array.from(
+    new Set(demoProducts.flatMap((p) => p.packSize.map((ps) => ps.label)))
+  ),
+];
+
+const FILTERS: { key: string; label: string; options: string[] }[] = [
+  { key: 'fabric', label: 'Fabric', options: FABRIC_OPTIONS },
+  { key: 'pack', label: 'Pack size', options: PACK_OPTIONS },
+];
+
+function capitalise(value: string) {
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
+export default function Shop() {
+  const params = useSearchParams();
+  const router = useRouter();
+
+  const set = (key: string, value: string) => {
+    const next = new URLSearchParams(params.toString());
+    if (value === 'All') next.delete(key);
+    else next.set(key, value);
+    const qs = next.toString();
+    router.push(qs ? `/products/?${qs}` : '/products/', { scroll: false });
+  };
+
+  const clear = () => router.push('/products/', { scroll: false });
+
+  const fabricFilter = params.get('fabric');
+  const packFilter = params.get('pack');
+  const hasFilters = params.toString() !== '';
+
+  const filtered = demoProducts.filter(
+    (product) =>
+      (!fabricFilter || product.fabric === fabricFilter) &&
+      (!packFilter || product.packSize.some((ps) => ps.label === packFilter))
+  );
+
+  return (
+    <>
+      <div className="filters">
+        {FILTERS.map(({ key, label, options }) => (
+          <fieldset key={key}>
+            <legend>{label}</legend>
+            <div className="filter-options">
+              {options.map((option) => {
+                const isActive = (params.get(key) || 'All') === option;
+                return (
+                  <button
+                    key={option}
+                    aria-pressed={isActive}
+                    className={isActive ? 'selected' : ''}
+                    onClick={() => set(key, option)}
+                  >
+                    {option === 'All' ? 'All' : capitalise(option)}
+                  </button>
+                );
+              })}
+            </div>
+          </fieldset>
+        ))}
+      </div>
+
+      <div className="results">
+        <span aria-live="polite">
+          {filtered.length} {filtered.length === 1 ? 'product' : 'products'}
+        </span>
+        {hasFilters && (
+          <button className="text-link" onClick={clear}>
+            Clear filters
+          </button>
+        )}
+        <span>Handmade. Always.</span>
+      </div>
+
+      {filtered.length ? (
+        <div className="product-grid shop-grid">
+          {filtered.map((p) => (
+            <Card product={p} key={p.slug} />
+          ))}
+        </div>
+      ) : (
+        <div className="empty">
+          <h2>No scrunchies match just yet.</h2>
+          <p>Try another fabric or pack size — your favourite is waiting.</p>
+          <button className="button" onClick={clear}>
+            Clear filters
+          </button>
+        </div>
+      )}
+    </>
+  );
+}
