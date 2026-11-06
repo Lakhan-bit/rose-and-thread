@@ -14,6 +14,9 @@ import { Card, Photo } from '@/components/ui';
 import { demoProducts } from '@/lib/demoProducts';
 import { chatLink, site } from '@/lib/site';
 
+import ThirdFour from '@/public/thirdProduct/thirdProduct_page-0004.jpg'
+
+
 interface TrustItem {
   icon: LucideIcon;
   text: string;
@@ -88,7 +91,7 @@ export default function Home() {
 
         <div className="hero-art">
           <Photo
-            src="/demo/hero.svg"
+            src={ThirdFour}
             alt="Illustrated rose, champagne and sage scrunchies arranged on warm linen"
             priority
           />
