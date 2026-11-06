@@ -63,7 +63,7 @@ export interface DemoProduct {
 
 export const demoProducts: DemoProduct[] = [
   {
-    "name": "Satin Scrunchie — Dusty Rose",
+    "name": "Satin Scrunchie — Dusty Rose (Pack of 3)",
     "slug": "satin-scrunchie-dusty-rose",
     "fabric": "satin",
     "price": 99,
@@ -90,7 +90,7 @@ export const demoProducts: DemoProduct[] = [
     "bestseller": true
   },
   {
-    "name": "Velvet Scrunchie — Forest",
+    "name": "Velvet Scrunchie — Forest (Pack of 3)",
     "slug": "velvet-scrunchie-forest",
     "fabric": "velvet",
     "price": 109,
@@ -117,7 +117,7 @@ export const demoProducts: DemoProduct[] = [
     "bestseller": false
   },
   {
-    "name": "Cotton Scrunchie — Ivory",
+    "name": "Cotton Scrunchie — Ivory (Pack of 3)",
     "slug": "cotton-scrunchie-ivory",
     "fabric": "cotton",
     "price": 149,
@@ -141,7 +141,7 @@ export const demoProducts: DemoProduct[] = [
     "bestseller": true
   },
   {
-    "name": "Everyday Set — Warm Neutrals",
+    "name": "Everyday Set — Warm Neutrals (Pack of 3)",
     "slug": "everyday-set-warm-neutrals",
     "fabric": "satin",
     "price": 99,
@@ -168,7 +168,7 @@ export const demoProducts: DemoProduct[] = [
     "bestseller": true
   },
   {
-    "name": "Satin Scrunchie — Midnight",
+    "name": "Satin Scrunchie — Midnight (Pack of 3)",
     "slug": "satin-scrunchie-midnight",
     "fabric": "satin",
     "price": 109,
@@ -192,7 +192,7 @@ export const demoProducts: DemoProduct[] = [
     "bestseller": false
   },
   {
-    "name": "Velvet Scrunchie — Terracotta",
+    "name": "Velvet Scrunchie — Terracotta (Pack of 3)",
     "slug": "velvet-scrunchie-terracotta",
     "fabric": "velvet",
     "price": 149,
