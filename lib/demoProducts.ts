@@ -25,18 +25,22 @@ import ThirdFour from '@/public/thirdProduct/thirdProduct_page-0004.jpg'
 import ThirdFive from '@/public/thirdProduct/thirdProduct_page-0005.jpg'
 import ThirdSix from '@/public/thirdProduct/thirdProduct_page-0006.jpg'
 
-import FourthOne from '@/public/FourthProduct/fourthProduct_page-0001.jpg'
-import FourthTwo from '@/public/FourthProduct/fourthProduct_page-0002.jpg'
-import FourthThree from '@/public/FourthProduct/fourthProduct_page-0003.jpg'
-import FourthFour from '@/public/FourthProduct/fourthProduct_page-0004.jpg'
-import FourthFive from '@/public/FourthProduct/fourthProduct_page-0005.jpg'
+import FourthOne from '@/public/fourthProduct/fourthProduct_page-0001.jpg'
+import FourthTwo from '@/public/fourthProduct/fourthProduct_page-0002.jpg'
+import FourthThree from '@/public/fourthProduct/fourthProduct_page-0003.jpg'
+import FourthFour from '@/public/fourthProduct/fourthProduct_page-0004.jpg'
+import FourthFive from '@/public/fourthProduct/fourthProduct_page-0005.jpg'
 
-import FifthOne from '@/public/FifthProduct/FifthProduct_page-0001.jpg'
-import FifthTwo from '@/public/FifthProduct/FifthProduct_page-0001.jpg'
-import FifthThree from '@/public/FifthProduct/FifthProduct_page-0001.jpg'
-import FifthFour from '@/public/FifthProduct/FifthProduct_page-0001.jpg'
-import FifthFive from '@/public/FifthProduct/FifthProduct_page-0001.jpg'
-import Fifthix from '@/public/FifthProduct/FifthProduct_page-0001.jpg'
+import FifthOne from '@/public/fifthProduct/FifthProduct_page-0001.jpg'
+import FifthTwo from '@/public/fifthProduct/FifthProduct_page-0001.jpg'
+import FifthThree from '@/public/fifthProduct/FifthProduct_page-0001.jpg'
+import FifthFour from '@/public/fifthProduct/FifthProduct_page-0001.jpg'
+import FifthFive from '@/public/fifthProduct/FifthProduct_page-0001.jpg'
+
+import sixthOne from '@/public/sixthProduct/sixthFirst.png'
+import sixthSecond from '@/public/sixthProduct/sixthSecond.png'
+import sixthThird from '@/public/sixthProduct/sixthThird.png'
+import sixthFourth from '@/public/sixthProduct/sixthFourth.png'
 
 export interface PackSize {
   label: string;
@@ -206,12 +210,9 @@ export const demoProducts: DemoProduct[] = [
       "Care: Hand wash cold, air dry away from direct sun",
       "Pack contents: 1 scrunchie"
     ],
-    "MainImage": "https://placehold.co/1000x1000/C67B5C/FFFFFF?text=Terracotta+%E2%80%94+Front",
+    "MainImage": sixthOne,
     "OtherImages": [
-      "https://placehold.co/1000x1000/C67B5C/FFFFFF?text=Terracotta+%E2%80%94+Side",
-      "https://placehold.co/1000x1000/C67B5C/FFFFFF?text=Terracotta+%E2%80%94+Back",
-      "https://placehold.co/1000x1000/C67B5C/FFFFFF?text=Terracotta+%E2%80%94+Texture",
-      "https://placehold.co/1000x1000/C67B5C/FFFFFF?text=Terracotta+%E2%80%94+Worn"
+      sixthOne, sixthThird, sixthFourth
     ],
     "featured": true,
     "bestseller": false
