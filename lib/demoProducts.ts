@@ -7,14 +7,14 @@ import firstTwo from '@/public/firstProduct/firstProduct_page-0002.jpg'
 import firstThree from '@/public/firstProduct/firstProduct_page-0003.jpg'
 import firstFour from '@/public/firstProduct/firstProduct_page-0004.jpg'
 import firstFive from '@/public/firstProduct/firstProduct_page-0005.jpg'
-import firstSix from '@/public/firstProduct/firstProduct_page-0006.jpg'
-import firstSeven from '@/public/firstProduct/firstProduct_page-0007.jpg'
+import firstSix from '@/public/firstProduct/firstProduct_page-0006.jpeg'
+import firstSeven from '@/public/firstProduct/firstProduct_page-0007.jpeg'
 
-import secondFirst from '@/public/secondProduct/seocndProduct_page-0001.jpg'
+import secondFour from '@/public/secondProduct/seocndProduct_page-0001.jpg'
 import secondTwo from '@/public/secondProduct/seocndProduct_page-0002.jpg'
 import secondThree from '@/public/secondProduct/seocndProduct_page-0003.jpg'
-import secondFour from '@/public/secondProduct/seocndProduct_page-0004.jpg'
-import secondFive from '@/public/secondProduct/seocndProduct_page-0005.jpg'
+import secondFive from '@/public/secondProduct/seocndProduct_page-0004.jpg'
+import secondFirst from '@/public/secondProduct/seocndProduct_page-0005.jpg'
 import secondSix from '@/public/secondProduct/seocndProduct_page-0006.jpg'
 import secondSeven from '@/public/secondProduct/seocndProduct_page-0007.jpg'
 
@@ -52,24 +52,26 @@ export interface DemoProduct {
   slug: string;
   fabric: string;
   price: number;
-  packSize: { label: string; price: number }[];
+  packSize: PackSize[];
   description: string;
   details: string[];
-  MainImage: ImageSrc;
-  OtherImages: ImageSrc[];
+  MainImage: string | StaticImageData;
+  OtherImages: (string | StaticImageData)[];
   featured: boolean;
   bestseller: boolean;
+  inStock: boolean;        // ← add this
 }
 
 export const demoProducts: DemoProduct[] = [
   {
-    "name": "Satin Scrunchie — Dusty Rose (Pack of 3)",
+    "name": "Shuie Scrunchie — Dusty Rose (Pack of 2)",
     "slug": "satin-scrunchie-dusty-rose",
     "fabric": "satin",
-    "price": 99,
+    "price": 60,
     "packSize": [
-      { "label": "Set of 3", "price": 99 },
-      { "label": "Set of 6", "price": 149 }
+      { "label": "Set of 2", "price": 60 },
+      { "label": "Set of 3", "price": 90 },
+      { "label": "Set of 5", "price": 100 }
     ],
     "description": "A soft satin scrunchie in a warm dusty rose that works with almost every hair colour. The smooth finish glides over hair without snagging, so you can wear it all day without a headache. Holds a messy bun, a low ponytail, or a half-up style without slipping.",
     "details": [
@@ -87,16 +89,16 @@ export const demoProducts: DemoProduct[] = [
       firstSeven
     ],
     "featured": true,
-    "bestseller": true
+    "bestseller": true,
+    "inStock":true
   },
   {
-    "name": "Velvet Scrunchie — Forest (Pack of 3)",
+    "name": "Velvet Scrunchie — Forest (Pack of 5)",
     "slug": "velvet-scrunchie-forest",
     "fabric": "velvet",
-    "price": 109,
+    "price": 120,
     "packSize": [
-      { "label": "Set of 3", "price": 109 },
-      { "label": "Set of 6", "price": 199 }
+      { "label": "Set of 5", "price": 120 }
     ],
     "description": "Deep forest green velvet with a plush, matte finish that grips hair gently — no pins or clips needed. The thicker band holds heavy hair in place while staying soft on the scalp. A quiet, grown-up colour that pairs with almost everything.",
     "details": [
@@ -114,7 +116,8 @@ export const demoProducts: DemoProduct[] = [
       secondFive
     ],
     "featured": true,
-    "bestseller": false
+    "bestseller": false,
+    "inStock":true
   },
   {
     "name": "Cotton Scrunchie — Ivory (Pack of 3)",
@@ -138,7 +141,8 @@ export const demoProducts: DemoProduct[] = [
       ThirdOne, ThirdTwo, ThirdThree, ThirdFour, ThirdFive, ThirdSix
     ],
     "featured": false,
-    "bestseller": true
+    "bestseller": true,
+    "inStock":false
   },
   {
     "name": "Everyday Set — Warm Neutrals (Pack of 3)",
@@ -165,7 +169,8 @@ export const demoProducts: DemoProduct[] = [
       FourthFive
     ],
     "featured": true,
-    "bestseller": true
+    "bestseller": true,
+    "inStock":false
   },
   {
     "name": "Satin Scrunchie — Midnight (Pack of 3)",
@@ -189,7 +194,8 @@ export const demoProducts: DemoProduct[] = [
       FifthOne,FifthTwo, FifthThree, FifthFour, FifthFive
     ],
     "featured": false,
-    "bestseller": false
+    "bestseller": false,
+    "inStock":false
   },
   {
     "name": "Velvet Scrunchie — Terracotta (Pack of 3)",
@@ -213,7 +219,8 @@ export const demoProducts: DemoProduct[] = [
       sixthOne, sixthThird, sixthFourth
     ],
     "featured": true,
-    "bestseller": false
+    "bestseller": false,
+    "inStock":false
   }
 ]
 

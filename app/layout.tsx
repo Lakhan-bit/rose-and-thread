@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: '%s | Rose & Thread',
   },
   description:
-    'Thoughtfully handmade scrunchies in satin, cotton and velvet. A little softness, made in Indore.',
+    'Thoughtfully handmade scrunchies in satin, cotton and velvet. A little softness, made in Gondia.',
   openGraph: {
     title: 'Rose & Thread',
     description: 'Little things, lovely days.',

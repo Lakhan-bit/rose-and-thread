@@ -14,12 +14,12 @@ export const site: SiteConfig = {
   name: 'Rose & Thread',
   city: 'Gondia',
   maker: 'the maker',
-  whatsappNumber: '7796203702',
+  whatsappNumber: '7666008399',
   instagramUrl: 'https://www.instagram.com/',
   email: '',
-  domain: 'https://rose-and-thread-vedansh.vedanshsaini786.chatgpt.site',
-  freeShippingThreshold: 499,
-  returnWindowDays: 7,
+  domain: 'https://rose-and-thread.vercel.app',
+  freeShippingThreshold: 99,
+  returnWindowDays: 3,
 };
 
 export const chatLink = (): string => {

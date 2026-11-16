@@ -29,6 +29,16 @@ function contentsForPack(pack: PackSize): string {
   return `${match[1]} scrunchies`;
 }
 
+function buildNotifyLink(
+  product: DemoProduct,
+  pack: PackSize,
+  whatsappNumber: string,
+  brandName: string
+): string {
+  const message = `Hi ${brandName}! Please notify me when ${product.name} (${pack.label}) is back in stock.`;
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
 export default function ProductDetail({ product: p }: { product: DemoProduct }) {
   const gallery = [p.MainImage, ...p.OtherImages];
   const basePrice = p.packSize[0].price;
@@ -49,6 +59,8 @@ export default function ProductDetail({ product: p }: { product: DemoProduct }) 
 
   const orderUrl = buildWhatsAppLink(p, pack, site.whatsappNumber, site.name);
   const showPackSelector = p.packSize.length > 1;
+
+  const notifyLink = buildNotifyLink(p, pack, site.whatsappNumber, site.name);
 
   return (
     <>
@@ -129,13 +141,30 @@ export default function ProductDetail({ product: p }: { product: DemoProduct }) 
           )}
 
           <p className="stock">
-            <Check size={15} /> In stock · ready for a lovely day
+            {p.inStock ? (
+              <>
+                <Check size={15} /> In stock · ready for a lovely day
+              </>
+            ) : (
+              'Currently out of stock — check back soon or ask us'
+            )}
           </p>
 
           <div ref={ctaRef}>
-            <a className="button buy-button" href={orderUrl}>
-              <MessageCircle size={19} /> Order on WhatsApp <ArrowRight size={17} />
-            </a>
+            {p.inStock ? (
+              <a className="button buy-button" href={orderUrl}>
+                <MessageCircle size={19} /> Order on WhatsApp <ArrowRight size={17} />
+              </a>
+            ) : (
+              <>
+                <button className="button buy-button" type="button" disabled>
+                  Out of stock
+                </button>
+                <a className="text-link" href={notifyLink}>
+                  Notify me on WhatsApp
+                </a>
+              </>
+            )}
           </div>
 
           <div className="trust-stack">

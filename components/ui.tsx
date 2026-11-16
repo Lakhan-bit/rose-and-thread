@@ -216,12 +216,19 @@ export function Card({ product: p }: { product: DemoProduct }) {
   return (
     <article className="product-card">
       <Link href={`/products/${p.slug}/`}>
-        <div className="product-image">
+        <div
+          className="product-image"
+          style={!p.inStock ? { filter: 'saturate(0.55)' } : undefined}
+        >
           <Photo
             src={p.MainImage}
             alt={`${p.name} ${p.fabric} scrunchie`}
           />
-          {p.bestseller && <span className="badge">Bestseller</span>}
+          {!p.inStock ? (
+            <span className="badge">Out of stock</span>
+          ) : (
+            p.bestseller && <span className="badge">Bestseller</span>
+          )}
           <span className="card-arrow">
             <ArrowUpRight size={18} />
           </span>
