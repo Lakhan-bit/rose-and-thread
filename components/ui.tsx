@@ -66,9 +66,15 @@ export function Header() {
       )}
 
       <header>
-        <Link className="wordmark" href="/">
-          rose <i>&</i> thread
-          <span>HANDMADE WITH A LITTLE LOVE</span>
+        <Link className="wordmark" href="/" aria-label="Rose & Thread — home">
+          <Image
+            src="/rose_and_thread_logo.png"
+            alt="Rose & Thread"
+            width={160}
+            height={48}
+            priority
+            className="wordmark-logo"
+          />
         </Link>
 
         <nav aria-label="Main navigation">

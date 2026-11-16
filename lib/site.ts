@@ -13,10 +13,10 @@ export interface SiteConfig {
 export const site: SiteConfig = {
   name: 'Rose & Thread',
   city: 'Gondia',
-  maker: 'the maker',
+  maker: 'Reymi Lakhan',
   whatsappNumber: '7666008399',
-  instagramUrl: 'https://www.instagram.com/',
-  email: '',
+  instagramUrl: 'https://www.instagram.com/rose___thread',
+  email: 'madhurfule61@gmail.com',
   domain: 'https://rose-and-thread.vercel.app',
   freeShippingThreshold: 99,
   returnWindowDays: 3,
